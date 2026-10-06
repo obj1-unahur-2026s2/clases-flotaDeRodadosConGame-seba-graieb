@@ -1,9 +1,32 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+describe "pruebas dependencias" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
+  test "El peso total de la flota de deportes es 6450" {
+
+    const deportes = new Dependencia(cantidadDeEmpleados = 45)
+    
+    const cultura = new Dependencia(cantidadDeEmpleados = 31)
+
+    const autoUno = new Corsa( color = "Rojo" )
+
+    var cachito = new Corsa (color = "Rojo")
+
+    deportes.agregarAFlota(cachito)
+    deportes.agregarAFlota(new Corsa (color = "Azul"))
+    deportes.agregarAFlota(new Corsa (color = "Verde"))
+    deportes.agregarAFlota(new RenaultKwid (tieneTanqueAdicional = true))
+    deportes.agregarAFlota(new AutosEspeciales (capacidad = 5, velocidadMaxima = 160, peso = 1200, color = "Beige"))
+
+    cultura.agregarAFlota(cachito)
+    cultura.agregarAFlota(new RenaultKwid (tieneTanqueAdicional = true))
+    cultura.agregarAFlota(new RenaultKwid (tieneTanqueAdicional = true))
+    cultura.agregarAFlota(new RenaultKwid (tieneTanqueAdicional = false))
+    trafic.cambiarInteriorAPopular()
+    trafic.cambiarMotorABataton()
+    cultura.agregarAFlota(trafic)
+
+    assert.equals(6450, deportes.pesoTotalFlota())
+}
 
 }
